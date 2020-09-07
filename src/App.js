@@ -17,6 +17,9 @@ import Profile from "./components/Profile/Profile";
 import { auth } from "./services/firebase";
 import ChatRoom from "./components/ChatRoom/ChatRoom";
 import Questions from "./components/Questions/Questions";
+import QuestionCard from './components/Questions/QuestionCard';
+import LanguageSelector from './components/Profile/Languages';
+
 
 function App() {
   const [authentication, setAuth] = useState(false);
@@ -91,6 +94,11 @@ function App() {
             component={Questions}
           />
           <PrivateRoute
+            path="/questioncard"
+            authenticated={authentication}
+            component={QuestionCard}
+          />
+          <PrivateRoute
             path="/profile"
             authenticated={authentication}
             component={Profile}
@@ -99,6 +107,11 @@ function App() {
             path="/avatar"
             authenticated={authentication}
             component={AvatarSelector}
+          />
+          <PrivateRoute
+            path="/language"
+            authenticated={authentication}
+            component={LanguageSelector}
           />
           <PublicRoute
             path="/signup"
