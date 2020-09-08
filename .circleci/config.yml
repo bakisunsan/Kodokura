@@ -11,12 +11,15 @@ jobs:
           name: "Node.js version check"
           command: node --version
       - checkout
+      - run: "yarn install"
+        command: yarn install
       - run:
           name: "Install Firebase CLI"
           command: yarn add --dev firebase-tools
       - run:
           name: "Deploy to Hosting"
-          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
+          #command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
+          command: ./node_modules/.bin/firebase emulators:start --only functions
 workflows:
   version: 2
   build_and_deploy:
