@@ -12,8 +12,8 @@ jobs:
           command: node --version
       - checkout
       - run:
-        name: "yarn install"
-        command: yarn install
+          name: "Yarn install"
+          command: yarn install
       - run:
           name: "Install Firebase CLI"
           command: yarn add --dev firebase-tools
